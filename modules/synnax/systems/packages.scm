@@ -68,7 +68,7 @@
  texinfo
  maths          ; GNUPlot
  gcc            ; GNU C Manual
- python-xyz     ; python-pygments
+ python-build   ; python-pygments
  aspell
  kde-graphics   ; okular
  pdf
