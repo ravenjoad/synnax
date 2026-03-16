@@ -6,6 +6,7 @@
   #:use-module (gnu packages emacs)
   #:use-module (gnu packages guile)
   #:use-module (gnu packages guile-xyz)
+  #:use-module (synnax packages papers)
   #:use-module (synnax packages resume))
 
 (define-public personal-website
@@ -35,7 +36,8 @@
              (lambda _
                (copy-recursively "site" #$output)
                (mkdir-p (string-append #$output "/assets/pdf/resume"))
-               (symlink #$resume (string-append #$output "/assets/pdf/resume/Hallsby_Karl.pdf")))))))
+               (symlink #$resume (string-append #$output "/assets/pdf/resume/Hallsby_Karl.pdf"))
+               (symlink #$latte26 (string-append #$output "/assets/pdf/latte26.pdf")))))))
      (native-inputs
       `(("guile" ,guile-3.0)
         ("guile-reader" ,guile-reader)
