@@ -12,17 +12,18 @@
   (let ((commit "e86dc4f692136f04919fe4c8f6a060b36d1eb65e")
         (revision "23"))
     (package
-     (name "karl-personal-website")
+     (name "personal-website")
      (version (git-version "0.0.0" revision commit))
-     (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url "git://karl.hallsby.com/website.git")
-                    (commit commit)))
-              (file-name (git-file-name name version))
-              (sha256
-               (base32
-                "0ld2jrpadds23f0gd8f4ahy21drfkar273lyvym3qbm201f9nnd0"))))
+     (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "git://karl.hallsby.com/website.git")
+               (commit commit)))
+        (file-name (git-file-name name version))
+        (sha256
+         (base32
+          "0ld2jrpadds23f0gd8f4ahy21drfkar273lyvym3qbm201f9nnd0"))))
      (build-system gnu-build-system)
      (arguments
       (list
@@ -31,9 +32,10 @@
            (delete 'configure)
            (delete 'check)
            (replace 'install
-             (lambda _ (copy-recursively "site" #$output)
-                     (mkdir-p (string-append #$output "/assets/pdf/resume"))
-                     (symlink #$resume (string-append #$output "/assets/pdf/resume/Hallsby_Karl.pdf")))))))
+             (lambda _
+               (copy-recursively "site" #$output)
+               (mkdir-p (string-append #$output "/assets/pdf/resume"))
+               (symlink #$resume (string-append #$output "/assets/pdf/resume/Hallsby_Karl.pdf")))))))
      (native-inputs
       `(("guile" ,guile-3.0)
         ("guile-reader" ,guile-reader)
