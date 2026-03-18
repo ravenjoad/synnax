@@ -454,7 +454,10 @@ By default, age defaults to 1 year."
                            (authorized-keys
                             (append (list (local-file
                                            (string-append (getenv "HOME")
-                                                          "/Repos/synnax/deploys/desktop-guix-signing-key.pub")))
+                                                          "/Repos/synnax/deploys/desktop-guix-signing-key.pub"))
+                                          (local-file
+                                           (string-append (getenv "HOME")
+                                                          "/Repos/synnax/deploys/avocato-guix-signing-key.pub")))
                                     %default-authorized-guix-keys)))))))
    (bootloader
     (bootloader-configuration
