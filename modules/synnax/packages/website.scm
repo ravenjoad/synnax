@@ -10,8 +10,8 @@
   #:use-module (synnax packages resume))
 
 (define-public personal-website
-  (let ((commit "0fee1eec9667624451aedb4fde455e4f4d424809")
-        (revision "25"))
+  (let ((commit "b6c49ce6893a803dd26119583f7f5565aae477be")
+        (revision "26"))
     (package
      (name "personal-website")
      (version (git-version "0.0.0" revision commit))
@@ -24,14 +24,17 @@
         (file-name (git-file-name name version))
         (sha256
          (base32
-          "00hl5j2nm7q1rf0c2jgpmw6f4scfsxnzc5fjjk13jl0rsjw791yc"))))
+          "0p735indn7x60vv4y6mldfr0g9bxl56mnr31gxidlsarcxa9in7s"))))
      (build-system gnu-build-system)
      (arguments
       (list
+       ;; #:install-plan
+       ;; #~'((#$resume (string-append #$output "/assets/pdf/resume/Hallsby_Karl.pdf")))
        #:phases
        #~(modify-phases %standard-phases
            (delete 'configure)
            (delete 'check)
+           ;; (replace 'install (@@ (gnu build-system copy) install)))))
            (replace 'install
              (lambda _
                (copy-recursively "site" #$output)
