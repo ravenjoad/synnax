@@ -29,6 +29,7 @@
 
 (use-package-modules
  base             ; glibc, locales, grep, sed, etc.
+ electronics  ; lepton-eda
  gawk
  gnuzilla ; Icecat
  gstreamer
@@ -60,7 +61,7 @@
  gdb
  code           ; global
  shellutils
- engineering    ; lepton-eda, poke, radare2
+ engineering    ; poke, radare2
  text-editors   ; texmacs
  cmake
  tex            ; texlive packages, biber
