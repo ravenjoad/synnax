@@ -85,6 +85,7 @@
  lisp lisp-xyz
  perl
  rsync
+ rust-apps
  vpn
  cups
  web
@@ -374,6 +375,7 @@
         radare2 ;; Reverse engineering tools (good for diff of assembly)
         direnv
         screen
+        difftastic ;; tree-sitter powered diff
         texinfo))
 
 (define %mailing-list-packages
