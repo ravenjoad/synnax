@@ -226,8 +226,8 @@ PROMPT_COMMAND=\"color_prompt_command${PROMPT_COMMAND:+;$PROMPT_COMMAND}\"")
 *.el    diff=elisp
 *.lisp  diff=lisp"))
                          `("git/config"
-                           ,(plain-file "gitconfig"
-                                        "[core]
+                           ,(mixed-text-file "gitconfig"
+                                             "[core]
 \tautocrlf = false
 \tattributesfile = ~/.config/git/gitattributes
 \texcludesfile = ~/.config/git/gitignore
@@ -248,6 +248,9 @@ PROMPT_COMMAND=\"color_prompt_command${PROMPT_COMMAND:+;$PROMPT_COMMAND}\"")
 
 [receive]
 \tfsckobjects = true
+
+[diff]
+\texternal = \"" difftastic "/bin/difft\"
 
 [diff \"lisp\"]
 \txfuncname = ^(\\\\((def[^[:space:]]*|let)[[:space:]]+[^[:space:]]+)
