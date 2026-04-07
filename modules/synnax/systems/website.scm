@@ -243,7 +243,12 @@ By default, age defaults to 1 year."
                           (name "avocato")
                           (public-key "X3Ku6TUMvyx9uGrrP5EUJHhxz5yJf4xt2Kbof1kv7TU=")
                           (preshared-key "/etc/wireguard/avocato-website.psk")
-                          (allowed-ips '("10.0.0.3/32")))))))
+                          (allowed-ips '("10.0.0.3/32")))
+                        (wireguard-peer
+                          (name "lilcato")
+                          (public-key "IeIt1/VHdoq7sbJlpaRnGM4bSOxyJkDUZ9su+wti1Ho=")
+                          (preshared-key "/etc/wireguard/lilcato-website.psk")
+                          (allowed-ips '("10.0.0.4/32")))))))
            (service git-daemon-service-type) ;; Allow cloning repos with git://
            (service website-deploy-service-type
                     (website-deploy-configuration

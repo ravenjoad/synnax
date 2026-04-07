@@ -50,6 +50,11 @@
                       (peers
                        (list
                         (wireguard-peer
+                          (name "lilcato")
+                          (public-key "IeIt1/VHdoq7sbJlpaRnGM4bSOxyJkDUZ9su+wti1Ho=")
+                          (preshared-key "/etc/wireguard/avocato-lilcato.psk")
+                          (allowed-ips '("10.0.0.4/32")))
+                        (wireguard-peer
                           (name "korphus")
                           (public-key "4NRyR06AiYgtFpmqOcNrGtTZNBUfKLQB7wan6EKlJyc=")
                           (preshared-key "/etc/wireguard/avocato-router.psk")
