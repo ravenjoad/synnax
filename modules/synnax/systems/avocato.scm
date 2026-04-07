@@ -50,6 +50,14 @@
                       (peers
                        (list
                         (wireguard-peer
+                          (name "korphus")
+                          (public-key "4NRyR06AiYgtFpmqOcNrGtTZNBUfKLQB7wan6EKlJyc=")
+                          (preshared-key "/etc/wireguard/avocato-router.psk")
+                          (allowed-ips '("10.0.0.2/32"))
+                          (endpoint (string-append "korphus.hallsby.com" ":"
+                                                   (number->string 51820)))
+                          (keep-alive 60))
+                        (wireguard-peer
                           (name "website")
                           (public-key "KUoopzIFt1umejE5TPryLU8F457bfjdmShRc1dHHAlM=")
                           (preshared-key "/etc/wireguard/avocato-website.psk")
