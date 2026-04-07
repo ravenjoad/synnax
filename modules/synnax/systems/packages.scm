@@ -1,6 +1,7 @@
 (define-module (synnax systems packages)
   #:use-module (gnu)
   #:use-module (guix)
+  #:use-module (gnu packages vpn)
   #:use-module (nongnu packages mozilla)
   #:use-module (nongnu packages messaging) ;; zoom, element-desktop
   #:use-module (nongnu packages emacs) ;; clhs
@@ -120,6 +121,7 @@
 (define %system-packages
   (append
    (list pwgen
+         wireguard-tools
          glibc-locales
          xdg-utils
          xdg-desktop-portal
