@@ -233,6 +233,13 @@ By default, age defaults to 1 year."
                       (peers
                        (list
                         (wireguard-peer
+                          (name "korphus")
+                          (public-key "4NRyR06AiYgtFpmqOcNrGtTZNBUfKLQB7wan6EKlJyc=")
+                          (preshared-key "/etc/wireguard/router-website.psk")
+                          (allowed-ips '("10.0.0.2/32"))
+                          (endpoint (string-append "korphus.hallsby.com" ":"
+                                                   (number->string 51820))))
+                        (wireguard-peer
                           (name "avocato")
                           (public-key "X3Ku6TUMvyx9uGrrP5EUJHhxz5yJf4xt2Kbof1kv7TU=")
                           (preshared-key "/etc/wireguard/avocato-website.psk")
