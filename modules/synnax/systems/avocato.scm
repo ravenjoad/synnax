@@ -4,6 +4,7 @@
   #:use-module (gnu packages xorg)
   #:use-module (gnu services desktop)
   #:use-module (gnu services pm)
+  #:use-module (gnu services vpn)
   #:use-module (nongnu packages linux)
   #:use-module (synnax services udev-rules)
   #:use-module (synnax systems base-system)
@@ -42,7 +43,20 @@
                      (auto-enable? #t)))
            (service power-profiles-daemon-service-type)
            (udev-rules-service 'change-brightness-service-type backlight-udev-rule)
-           (udev-rules-service 'zsa-moonlander zsa-udev-rule))
+           (udev-rules-service 'zsa-moonlander zsa-udev-rule)
+           (service wireguard-service-type
+                    (wireguard-configuration
+                      (addresses '("10.0.0.3/32"))
+                      (peers
+                       (list
+                        (wireguard-peer
+                          (name "website")
+                          (public-key "KUoopzIFt1umejE5TPryLU8F457bfjdmShRc1dHHAlM=")
+                          (preshared-key "/etc/wireguard/avocato-website.psk")
+                          (allowed-ips '("10.0.0.1/32"))
+                          (endpoint (string-append "raven.hallsby.com" ":"
+                                                   (number->string 51820)))
+                          (keep-alive 60)))))))
      (operating-system-user-services %base-system)))
 
    (mapped-devices (list (mapped-device

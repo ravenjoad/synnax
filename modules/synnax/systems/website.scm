@@ -15,6 +15,7 @@
   #:use-module (gnu services security)
   #:use-module (gnu services ssh)
   #:use-module (gnu services version-control)
+  #:use-module (gnu services vpn)
   #:use-module (gnu services web)
   #:use-module (synnax packages website)
   #:use-module (synnax services fstrim)
@@ -226,6 +227,16 @@ By default, age defaults to 1 year."
                         ("git" ,(local-file (string-append (getenv "HOME") "/.ssh/website_rsa.pub")))))))
            (service fstrim-service-type)
            (service dhcpcd-service-type)
+           (service wireguard-service-type
+                    (wireguard-configuration
+                      (addresses '("10.0.0.1/32"))
+                      (peers
+                       (list
+                        (wireguard-peer
+                          (name "avocato")
+                          (public-key "X3Ku6TUMvyx9uGrrP5EUJHhxz5yJf4xt2Kbof1kv7TU=")
+                          (preshared-key "/etc/wireguard/avocato-website.psk")
+                          (allowed-ips '("10.0.0.3/32")))))))
            (service git-daemon-service-type) ;; Allow cloning repos with git://
            (service website-deploy-service-type
                     (website-deploy-configuration
