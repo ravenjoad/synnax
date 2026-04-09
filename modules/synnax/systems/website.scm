@@ -230,6 +230,7 @@ By default, age defaults to 1 year."
            (service wireguard-service-type
                     (wireguard-configuration
                       (addresses '("10.0.0.1/32"))
+                      (shepherd-requirement '(networking))
                       (peers
                        (list
                         (wireguard-peer

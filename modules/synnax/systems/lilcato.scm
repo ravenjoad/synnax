@@ -36,6 +36,7 @@
            (service wireguard-service-type
                     (wireguard-configuration
                       (addresses '("10.0.0.4/32"))
+                      (shepherd-requirement '(networking))
                       (peers
                        (list
                         (wireguard-peer
