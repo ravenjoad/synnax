@@ -81,6 +81,7 @@
                 ("ls" . ,(literal-string "ls -p --color=auto"))
                 ("ip" . ,(literal-string "ip -color=auto"))
                 ("vim" . ,(literal-string "nvim"))
+                ("emserver" . ,(literal-string "emacsclient -nw -s server"))
                 ;; Many remote machines do not understand Alacritty's alacritty
                 ;; TERM environment variable, as the entry is not present in
                 ;; terminfo. So the remote machine falls back to some VT100-ish
