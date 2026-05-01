@@ -249,6 +249,9 @@ PROMPT_COMMAND=\"color_prompt_command${PROMPT_COMMAND:+;$PROMPT_COMMAND}\"")
 [receive]
 \tfsckobjects = true
 
+[init]
+\tdefaultBranch = main
+
 [diff]
 \texternal = \"" difftastic "/bin/difft\"
 
