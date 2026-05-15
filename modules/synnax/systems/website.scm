@@ -139,7 +139,6 @@ By default, age defaults to 1 year."
 
 (define bad-bots
   (list
-   "Amazonbot" "Amazonbot/0.1"
    "GPTBot" "GPTBot/1.2"
    "ClaudeBot" "ClaudeBot/1.0"
    "Bytespider" "PetalBot" "SemrushBot" "Semrush"
