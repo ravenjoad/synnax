@@ -1,5 +1,6 @@
 (define-module (synnax systems desktop)
   #:use-module (gnu)
+  #:use-module (gnu packages firmware)
   #:use-module (gnu packages freeipmi)
   #:use-module (gnu packages linux)
   #:use-module (gnu system)
@@ -86,7 +87,8 @@ is turned into
                 (hurd-vm-configuration
                  (disk-size (* 3 (expt 2 30))) ;3GiB Volatile disk
                  (memory-size 1024)))          ;1024MiB vRAM
-       (udev-rules-service 'zsa-moonlander zsa-udev-rule))
+       (udev-rules-service 'zsa-moonlander zsa-udev-rule)
+       (udev-rules-service 'qmk qmk-udev-rules))
       (modify-services (operating-system-user-services %base-system)
         ;; I have a beefy machine. Let's have 4 jobs go in parallel, but only
         ;; use 16 cores at once.

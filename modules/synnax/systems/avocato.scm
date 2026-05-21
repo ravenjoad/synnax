@@ -1,5 +1,6 @@
 (define-module (synnax systems avocato)
   #:use-module (gnu)
+  #:use-module (gnu packages firmware)
   #:use-module (gnu packages linux) ; brightnessctl
   #:use-module (gnu packages xorg)
   #:use-module (gnu services desktop)
@@ -44,6 +45,7 @@
            (service power-profiles-daemon-service-type)
            (udev-rules-service 'change-brightness-service-type backlight-udev-rule)
            (udev-rules-service 'zsa-moonlander zsa-udev-rule)
+           (udev-rules-service 'qmk qmk-udev-rules)
            (service wireguard-service-type
                     (wireguard-configuration
                       (addresses '("10.0.0.3/32"))
