@@ -138,17 +138,17 @@
 
 (define ravenjoad-keyboards-source
   (let ((name "ravenjoad-keyboards")
-        (commit "111a0d1bbc44c906d0d5cab96dff0d04c58566ce")
-        (revision "0"))
+        (commit "87d8818c97d6ed4bf81f44da4772e4ae5d40d02a")
+        (revision "1"))
     (origin
       (method git-fetch)
       (uri (git-reference
              (url "git://raven.hallsby.com/keyboards.git")
              (commit commit)))
       (file-name
-       (git-file-name name (git-version "1.0.0" revision commit)))
+       (git-file-name name (git-version "1.0.1" revision commit)))
       (sha256
-       (base32 "0fd1irvycvywdb80g7znw774bxl5a7q49pskglf9ia0hyyjir487")))))
+       (base32 "09dr7y60vylnn7lbmd08749ldn1g9f727i3sws6rl52bw4zfsss0")))))
 
 (define-public qmk-firmware-moonlander-ravenjoad
   (make-qmk-firmware-ravenjoad
