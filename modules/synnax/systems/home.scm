@@ -556,7 +556,10 @@ set tabsize 2
 set tabstospaces
 set softwrap
 set atblanks
-set autoindent"))))
+set autoindent
+
+# Include all the syntax highlighting modules.
+include /run/current-system/profile/share/nano/*.nanorc"))))
    (service home-zathura-service-type
             (home-zathura-configuration
              (config
