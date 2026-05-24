@@ -48,7 +48,7 @@
        (append (list
                 (channel
                  (name 'chilir)
-                 (url "https://github.com/Chil-HW/chilir.git")
+                 (url "https://codeberg.org/chil-hw/chilir.git")
                  (branch "main")))
                %default-channels)))
      (specification
@@ -58,7 +58,7 @@
        (append (list
                 (channel
                  (name 'tcl2cl)
-                 (url "https://github.com/Chil-HW/tcl2cl.git")
+                 (url "https://codeberg.org/chil-hw/tcl2cl.git")
                  (branch "master")))
                %default-channels)))
      (specification
@@ -68,7 +68,7 @@
        (append (list
                 (channel
                  (name 'chil)
-                 (url "https://github.com/Chil-HW/chil.git")
+                 (url "https://codeberg.org/chil-hw/chil.git")
                  (branch "main")))
                %default-channels)))
      (specification
@@ -78,7 +78,7 @@
        (append (list
                 (channel
                  (name 'shwatt)
-                 (url "https://github.com/Chil-HW/shwatt.git")
+                 (url "https://codeberg.org/chil-hw/shwatt.git")
                  (branch "master")))
                %default-channels)))
      (specification
