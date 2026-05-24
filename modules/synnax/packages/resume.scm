@@ -12,15 +12,16 @@
     (package
      (name "raven-resume")
      (version (git-version "0.0.0" revision commit))
-     (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url "git://raven.hallsby.com/resume.git")
-                    (commit commit)))
-              (file-name (git-file-name name version))
-              (sha256
-               (base32
-                "1zmpjkk9sqhkd56wl6bh8prklmwcgsxbwzacqmn4l6f0yhyqfvzh"))))
+     (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "git://raven.hallsby.com/resume.git")
+               (commit commit)))
+        (file-name (git-file-name name version))
+        (sha256
+         (base32
+          "1zmpjkk9sqhkd56wl6bh8prklmwcgsxbwzacqmn4l6f0yhyqfvzh"))))
      (build-system gnu-build-system)
      (native-inputs
       (list perl
