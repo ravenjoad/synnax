@@ -44,7 +44,7 @@
          (method git-fetch)
          (uri (git-reference
                 (url "https://github.com/ravenjoad/latte26-paper")
-                ;; (url "git://raven.hallsby.com/latte26.git")
+                ;; (url "git://raven.hallsby.com/papers/latte26.git")
                 (commit commit)))
          (file-name (git-file-name name version))
          (sha256
