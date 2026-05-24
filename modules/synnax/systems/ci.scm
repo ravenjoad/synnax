@@ -118,7 +118,7 @@
        (append (list
                 (channel
                  (name 'guile-yaml)
-                 (url "https://github.com/ravenjoad/guile-yaml.git")
+                 (url "https://codeberg.org/ravenjoad/guile-yaml.git")
                  (branch "master")))
                %default-channels)))
      (specification
