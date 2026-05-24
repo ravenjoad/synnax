@@ -372,6 +372,10 @@ By default, age defaults to 1 year."
                      (repository-directory "/srv/git/")
                      (enable-git-config? #t) ;; cgit reads repo info from .git/config
                      (virtual-root "/") ;; Build links relative to this
+                     ;; Allow directory names to serve as section headers.
+                     ;; The number is the number of path elements to use as the
+                     ;; section name.
+                     (section-from-path 1)
                      (css "/share/cgit/cgit.css")
                      (favicon "/share/cgit/favicon.ico")
                      (clone-url
