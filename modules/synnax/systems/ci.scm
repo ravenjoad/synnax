@@ -26,7 +26,7 @@
        (append (list
                 (channel
                  (name 'nanopass)
-                 (url "https://github.com/KarlJoad/nanopass-cl.git")
+                 (url "https://github.com/ravenjoad/nanopass-cl.git")
                  (branch "master")))
                %default-channels)))
      ;; FIXME: A specification to serve ONLY the built output of nanopass-cl's
@@ -38,7 +38,7 @@
      ;;   (append (list
      ;;            (channel
      ;;             (name 'nanopass)
-     ;;             (url "https://github.com/KarlJoad/nanopass-cl.git")
+     ;;             (url "https://github.com/ravenjoad/nanopass-cl.git")
      ;;             (branch "docs")))
      ;;           %default-channels)))
      (specification
@@ -88,7 +88,7 @@
        (append (list
                 (channel
                  (name 'gloa)
-                 (url "https://github.com/KarlJoad/gloa.git")
+                 (url "https://github.com/ravenjoad/gloa.git")
                  (branch "master")))
                %default-channels)))
      (specification
@@ -98,7 +98,7 @@
        (append (list
                 (channel
                  (name 'glorri)
-                 (url "https://github.com/KarlJoad/glorri.git")
+                 (url "https://github.com/ravenjoad/glorri.git")
                  (branch "master")))
                %default-channels)))
      (specification
@@ -108,7 +108,7 @@
        (append (list
                 (channel
                  (name 'lispy-key)
-                 (url "https://github.com/KarlJoad/lispy-key.git")
+                 (url "https://github.com/ravenjoad/lispy-key.git")
                  (branch "master")))
                %default-channels)))
      (specification
@@ -118,7 +118,7 @@
        (append (list
                 (channel
                  (name 'guile-yaml)
-                 (url "https://github.com/KarlJoad/guile-yaml.git")
+                 (url "https://github.com/ravenjoad/guile-yaml.git")
                  (branch "master")))
                %default-channels)))
      (specification
@@ -128,7 +128,7 @@
        (append (list
                 (channel
                  (name 'website)
-                 (url "git://karl.hallsby.com/website.git")
+                 (url "git://raven.hallsby.com/website.git")
                  (branch "master")))
                %default-channels)))
      (specification
@@ -137,7 +137,7 @@
       (channels
        (append (list (channel
                       (name 'synnax)
-                      (url "https://github.com/KarlJoad/synnax.git"))
+                      (url "https://github.com/ravenjoad/synnax.git"))
                      (channel
                       (name 'nonguix)
                       (url "https://gitlab.com/nonguix/nonguix")))

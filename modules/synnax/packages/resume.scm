@@ -10,12 +10,12 @@
   (let ((commit "25671a34e8504a1b823e3b33e8af9ef0b05d3d6d")
         (revision "8"))
     (package
-     (name "karl-resume")
+     (name "raven-resume")
      (version (git-version "0.0.0" revision commit))
      (source (origin
               (method git-fetch)
               (uri (git-reference
-                    (url "git://karl.hallsby.com/resume.git")
+                    (url "git://raven.hallsby.com/resume.git")
                     (commit commit)))
               (file-name (git-file-name name version))
               (sha256
@@ -60,7 +60,7 @@
                (setenv "HOME" (getcwd))))
            (replace 'install
              (lambda _ (copy-file "Hallsby_Karl.pdf" #$output))))))
-     (home-page "https://karl.hallsby.com")
+     (home-page "https://raven.hallsby.com")
      (synopsis "Personal Resume/CV built using LaTeX")
      (description "Karl Hallsby's personal resume/curriculum vitae built using LaTeX.")
      (license #f))))

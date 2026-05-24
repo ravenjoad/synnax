@@ -19,7 +19,7 @@
       (origin
         (method git-fetch)
         (uri (git-reference
-               (url "git://karl.hallsby.com/website.git")
+               (url "git://raven.hallsby.com/website.git")
                (commit commit)))
         (file-name (git-file-name name version))
         (sha256
@@ -50,7 +50,7 @@
         ("emacs" ,emacs-minimal)))
      (inputs
       `(("haunt" ,haunt)))
-     (home-page "https://karl.hallsby.com")
+     (home-page "https://raven.hallsby.com")
      (synopsis "Personal website built using Haunt static site generator")
      (description "Karl Hallsby's personal website built using the Haunt static site
 generator.")

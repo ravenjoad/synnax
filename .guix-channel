@@ -2,7 +2,7 @@
 
 (channel
  (version 0)
- (url "https://github.com/KarlJoad/synnax")
+ (url "https://github.com/ravenjoad/synnax")
  (dependencies
   (channel
    (name nonguix)

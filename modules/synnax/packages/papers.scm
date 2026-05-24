@@ -43,8 +43,8 @@
        (origin
          (method git-fetch)
          (uri (git-reference
-                (url "https://github.com/KarlJoad/latte26-paper")
-                ;; (url "git://karl.hallsby.com/latte26.git")
+                (url "https://github.com/ravenjoad/latte26-paper")
+                ;; (url "git://raven.hallsby.com/latte26.git")
                 (commit commit)))
          (file-name (git-file-name name version))
          (sha256
@@ -75,7 +75,7 @@
                 texlive-pgf ; tikz.sty
                 texlive-siunitx)
                acm-latex-packages))))
-      (home-page "https://karl.hallsby.com")
+      (home-page "https://raven.hallsby.com")
       (synopsis "LATTE '26 Paper \"Hardware Deserves a REPL\"")
       (description
        "")

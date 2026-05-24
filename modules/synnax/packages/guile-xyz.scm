@@ -18,7 +18,7 @@
   (package
    (name "guile-basexx")
    (version "0.0.1")
-   (home-page "https://github.com/KarlJoad/guile-basexx")
+   (home-page "https://github.com/ravenjoad/guile-basexx")
    (source (origin
             (method git-fetch)
             (uri (git-reference
