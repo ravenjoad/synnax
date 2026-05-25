@@ -71,7 +71,6 @@
             ;; which covers a good number of languages I use.
             (service dicod-service-type
                      (dicod-configuration
-                       (dico dico-xdg)
                        (handlers (list
                                   (dicod-handler
                                    (name "wordnet-handler")

@@ -1,12 +1,12 @@
 (define-module (synnax systems packages)
   #:use-module (gnu)
   #:use-module (guix)
+  #:use-module (gnu packages dictionaries)
   #:use-module (gnu packages vpn)
   #:use-module (nongnu packages mozilla)
   #:use-module (nongnu packages messaging) ;; zoom, element-desktop
   #:use-module (nongnu packages emacs) ;; clhs
   #:use-module (nongnu packages productivity) ;; zotero
-  #:use-module (synnax packages dictionaries)
   #:use-module (synnax packages scripts)
   #:export (%nonguix-packages
             %web-browser-packages
@@ -360,7 +360,7 @@
         sioyek
         aspell
         aspell-dict-en
-        dico-xdg
+        dico
         libreoffice))
 
 (define %development-packages
