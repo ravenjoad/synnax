@@ -402,7 +402,11 @@
   (list font-iosevka font-iosevka-slab font-iosevka-term font-iosevka-term-slab
         font-fira-mono font-fira-code
         ;; Add Google's noto font family (mostly for Emoji support)
-        font-google-noto font-google-noto-emoji))
+        font-google-noto font-google-noto-emoji
+        ;; CJK Support
+        font-google-noto-serif-cjk-static
+        font-google-noto-serif-cjk
+        font-google-noto-sans-cjk))
 
 (define %scientific-packages
   (list octave
