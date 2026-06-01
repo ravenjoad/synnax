@@ -435,7 +435,8 @@ will fetch ALL the user's emails with the configured interval."
                     ;; I am not a huge fan of using this apply to make things
                     ;; work, but it will work for now.
                     #~(apply system* #$post-sync-cmd)
-                    #~0))))))
+                    #~0))
+            "mbsync email synchronization"))))
 
 (define (add-home-mbsync-periodic-sync-job config)
   "If the user has enabled automatic synchronization, return the list of jobs
