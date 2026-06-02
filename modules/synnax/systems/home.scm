@@ -54,7 +54,7 @@
    (service home-pipewire-service-type)
    (simple-service 'force-xdg-env-vars-service
                    home-environment-variables-service-type
-                   `(("SQLITE_HISTORY" . "$XDG_CACHE_HOME/sqlite_history")))
+                   `(("SQLITE_HISTORY" . "$XDG_STATE_HOME/sqlite_history")))
    (simple-service 'language-env-vars-service
                    home-environment-variables-service-type
                    '(("LANGUAGE" . "en_US.utf8")
@@ -621,7 +621,7 @@ end")
                (plain-file "gdb-set-history-file"
                            "guile
 (use-modules (gdb))
-(let ((history-dir (string-append (or (getenv \"XDG_CACHE_HOME\") \"~/.cache\")
+(let ((history-dir (string-append (or (getenv \"XDG_STATE_HOME\") \"~/.cache\")
                                   \"/gdb\")))
   (execute (string-append \"set history filename \"
                            history-dir \"/history\"))
