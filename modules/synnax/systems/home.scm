@@ -139,6 +139,24 @@ PROMPT_COMMAND=\"color_prompt_command${PROMPT_COMMAND:+;$PROMPT_COMMAND}\"")
                (plain-file "export-final-prompt-command" "export PROMPT_COMMAND")
                ;; NOTE: Adding direnv support should come last!
                (plain-file "bashrc-add-direnv" "eval \"$(direnv hook bash)\"")))))
+   (service home-zsh-service-type
+            (home-zsh-configuration
+              (xdg-flavor? #t)
+              (zprofile
+               (list
+                (plain-file "zsh-zprofile-guix-defaults"
+                            "# Honor system-wide environment variables
+source /etc/profile
+
+# Merge search-paths from multiple profiles, the order matters.
+eval \"$(guix package --search-paths \\
+                      -p $HOME/.config/guix/current \\
+                      -p $HOME/.guix-profile \\
+                      -p $HOME/.guix-home/profile \\
+                      -p /run/current-system/profile)\"
+
+# Prepend setuid programs.
+export PATH=/run/setuid-programs:$PATH")))))
    (service home-openssh-service-type
             (home-openssh-configuration
              (hosts
