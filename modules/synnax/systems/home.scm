@@ -709,6 +709,8 @@ database *"))))
    ;; Allow my personal shepherd instance to do "herd timer", letting me schedule
    ;; actions in the future.
    (service home-shepherd-timer-service-type)
+   ;; Allow users to run "one-off" commands in the background; like systemd-run.
+   (service home-shepherd-transient-service-type)
    (service home-mcron-service-type
             (home-mcron-configuration
              (jobs
