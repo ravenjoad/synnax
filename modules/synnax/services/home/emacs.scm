@@ -2,9 +2,9 @@
   #:use-module (guix gexp)
   #:use-module (gnu packages emacs)
   #:use-module (gnu services configuration)
+  #:use-module (gnu services shepherd)
   #:use-module (gnu home services)
   #:use-module (gnu home services shepherd)
-  #:use-module (synnax services home utils)
   #:export (home-emacs-server-service-type
             home-emacs-server-configuration))
 
@@ -37,12 +37,18 @@
                 (server-name->symbol server-name)));; (server-name-suffix server-name))))
     (requirement '(dbus))
     (respawn? #t)
+    ;; NOTE: Using (shepherd support) like this means that Guix's builder needs
+    ;; to be able to find the module at build time, not when you pull the
+    ;; channel!
+    (modules `(((shepherd support) #:hide (mkdir-p)) ; for %user-log-dir
+               ,@%default-modules))
     (start #~(make-forkexec-constructor
               (list #$(file-append emacs-package "/bin/emacs")
                     #$(format #f "--fg-daemon=~a"
                               (server-name->server-socket-name server-name)))
-              #:log-file #$(home-service-log-file-path
-                            (format #f "emacs-~a"
+              #:log-file (string-append
+                          %user-log-dir "/"
+                          #$(format #f "emacs-~a.log"
                                     (server-name->server-socket-name server-name)))))
     (stop ;; #~(make-kill-destructor)
      #~(make-system-destructor
