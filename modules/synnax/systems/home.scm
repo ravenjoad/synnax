@@ -712,7 +712,12 @@ foreground = \"#ffffff\"
 
 [colors.selection]
 background = \"#3c3c3c\"
-text = \"#ffffff\""))))
+text = \"#ffffff\"
+
+[keyboard]
+bindings = [
+  { key = \",\", mods = \"Control\", chars = \"\\x1b[27;5;44~\" }, # Make C-, actually send C-,
+]"))))
    ;; Make dico use our local dicod server before attempting to go to online.
    (simple-service 'dico-config-files-service
                    home-xdg-configuration-files-service-type
