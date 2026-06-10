@@ -9,6 +9,7 @@
              (gnu home services mcron)
              (gnu home services sound)
              (gnu home services ssh)
+             (gnu home services syncthing)
              (gnu packages containers)
              (gnu packages rust-apps)
              (gnu packages mail)
@@ -531,6 +532,10 @@ export PATH=/run/setuid-programs:$PATH")))))
                          (starttls? #t)
                          (tls-trust-file "/etc/ssl/certs/ca-certificates.crt"))))
              (default-account "personal")))
+   (service home-syncthing-service-type
+            (for-home
+             (syncthing-configuration
+               (arguments '("--gui-address=127.0.0.1:8384")))))
    (simple-service 'wayland-workarounds-env-vars-service
             home-environment-variables-service-type
             `(("MOZ_ENABLE_WAYLAND" . "1")
