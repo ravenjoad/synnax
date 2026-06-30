@@ -161,9 +161,7 @@ export PATH=/run/setuid-programs:$PATH")))))
    (service home-openssh-service-type
             (home-openssh-configuration
              (hosts
-              (list (openssh-host (name "karl.hallsby.com")
-                                  (identity-file "~/.ssh/website_rsa"))
-                    (openssh-host (name "raven.hallsby.com")
+              (list (openssh-host (name "raven.hallsby.com")
                                   (identity-file "~/.ssh/website_rsa"))
                     (openssh-host (name "website")
                                   (user "root")
