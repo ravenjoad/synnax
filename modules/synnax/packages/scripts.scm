@@ -17,11 +17,10 @@
    (native-inputs `(("xrandr" ,xrandr) ("monitor-script" ,monitor-script)))
    (build-system trivial-build-system)
    (arguments
-    `(#:modules ((guix build utils) (srfi srfi-13))
+    `(#:modules ((guix build utils))
       #:builder
       (begin
-        (use-modules (guix build utils)
-                     (srfi srfi-13))
+        (use-modules (guix build utils))
         (let* ((bin (string-append (assoc-ref %outputs "out") "/bin"))
                (monitor-script (assoc-ref %build-inputs "monitor-script"))
                (target-script-file (string-append bin "/" "fix-desktop-monitors.scm")))
@@ -35,18 +34,15 @@ my monitors to work correctly.")
 
 (define monitor-script
   (program-file "fix-desktop-monitors.scm"
-                (with-imported-modules
-                 `((srfi srfi-13))
-                 #~(begin
-                     (use-modules (srfi srfi-13))
-                     (define* (xrandr-cmd output #:optional (extra ""))
-                       (let* ((xrandr-bin (string-append #$xrandr "/bin/xrandr"))
-                              (cmd-to-run (string-join `(,xrandr-bin "--output" ,output ,extra) " ")))
-                           (format #t "~a~%" (string-append cmd-to-run))
-                           (system cmd-to-run)))
-                     (xrandr-cmd "HDMI-1" "--left-of DP-1")
-                     (xrandr-cmd "HDMI-1" "--mode 1920x1080 --rate 144.00")
-                     (xrandr-cmd "DP-1" "--mode 1920x1080 --rate 144.00")))))
+                #~(begin
+                    (define* (xrandr-cmd output #:optional (extra ""))
+                      (let* ((xrandr-bin (string-append #$xrandr "/bin/xrandr"))
+                             (cmd-to-run (string-join `(,xrandr-bin "--output" ,output ,extra) " ")))
+                        (format #t "~a~%" (string-append cmd-to-run))
+                        (system cmd-to-run)))
+                    (xrandr-cmd "HDMI-1" "--left-of DP-1")
+                    (xrandr-cmd "HDMI-1" "--mode 1920x1080 --rate 144.00")
+                    (xrandr-cmd "DP-1" "--mode 1920x1080 --rate 144.00"))))
 
 (define-public fix-office-monitors
   (package
@@ -56,11 +52,10 @@ my monitors to work correctly.")
    (native-inputs `(("xrandr" ,xrandr) ("monitor-script" ,office-monitor-script)))
    (build-system trivial-build-system)
    (arguments
-    `(#:modules ((guix build utils) (srfi srfi-13))
+    `(#:modules ((guix build utils))
       #:builder
       (begin
-        (use-modules (guix build utils)
-                     (srfi srfi-13))
+        (use-modules (guix build utils))
         (let* ((bin (string-append (assoc-ref %outputs "out") "/bin"))
                (monitor-script (assoc-ref %build-inputs "monitor-script"))
                (target-script-file (string-append bin "/" "fix-office-monitors.scm")))
@@ -74,18 +69,15 @@ my monitors to work correctly.")
 
 (define office-monitor-script
   (program-file "fix-office-monitors.scm"
-                (with-imported-modules
-                 `((srfi srfi-13))
-                 #~(begin
-                     (use-modules (srfi srfi-13))
-                     (define* (xrandr-cmd output #:optional (extra ""))
-                       (let* ((xrandr-bin (string-append #$xrandr "/bin/xrandr"))
-                              (cmd-to-run (string-join `(,xrandr-bin "--output" ,output ,extra) " ")))
-                           (format #t "~a~%" (string-append cmd-to-run))
-                           (system cmd-to-run)))
-                     (xrandr-cmd "HDMI-1" "--right-of DP-1")
-                     (xrandr-cmd "HDMI-1" "--mode 1920x1080 --rate 60.00")
-                     (xrandr-cmd "DP-1" "--mode 1920x1080 --rate 60.00")))))
+                #~(begin
+                    (define* (xrandr-cmd output #:optional (extra ""))
+                      (let* ((xrandr-bin (string-append #$xrandr "/bin/xrandr"))
+                             (cmd-to-run (string-join `(,xrandr-bin "--output" ,output ,extra) " ")))
+                        (format #t "~a~%" (string-append cmd-to-run))
+                        (system cmd-to-run)))
+                    (xrandr-cmd "HDMI-1" "--right-of DP-1")
+                    (xrandr-cmd "HDMI-1" "--mode 1920x1080 --rate 60.00")
+                    (xrandr-cmd "DP-1" "--mode 1920x1080 --rate 60.00"))))
 
 (define-public last-reconfigure-date
   (package
@@ -95,11 +87,10 @@ my monitors to work correctly.")
    (native-inputs `(("last-reconfigure-date-script" ,last-reconfigure-date-script)))
    (build-system trivial-build-system)
    (arguments
-    `(#:modules ((guix build utils) (srfi srfi-13))
+    `(#:modules ((guix build utils))
       #:builder
       (begin
-        (use-modules (guix build utils)
-                     (srfi srfi-13))
+        (use-modules (guix build utils))
         (let* ((bin (string-append (assoc-ref %outputs "out") "/bin"))
                (script-source (assoc-ref %build-inputs "last-reconfigure-date-script"))
                (target-script-file (string-append bin "/" "last-reconfigure-date.scm")))
@@ -186,11 +177,10 @@ most recent system and per-user home profile were built.")
                     ("grep" ,grep)))
    (build-system trivial-build-system)
    (arguments
-    `(#:modules ((guix build utils) (srfi srfi-13))
+    `(#:modules ((guix build utils))
       #:builder
       (begin
-        (use-modules (guix build utils)
-                     (srfi srfi-13))
+        (use-modules (guix build utils))
         (let* ((bin (string-append (assoc-ref %outputs "out") "/bin"))
                (script-source (assoc-ref %build-inputs "nix-gc-roots-script"))
                (target-script-file (string-append bin "/" "nix-gc-roots.scm")))
