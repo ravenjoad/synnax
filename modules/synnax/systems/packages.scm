@@ -69,6 +69,7 @@
  ncurses
  texinfo
  maths          ; GNUPlot
+ plotutils
  gcc            ; GNU C Manual
  python-build   ; python-pygments
  aspell
@@ -355,6 +356,7 @@
         python-pygments ;; To make texlive-minted work
         ncurses ;; lualatex requires "tput", which ncurses provides
         zotero
+        asymptote
         gnuplot
         okular
         sioyek
