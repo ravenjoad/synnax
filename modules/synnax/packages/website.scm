@@ -10,8 +10,8 @@
   #:use-module (synnax packages resume))
 
 (define-public personal-website
-  (let ((commit "3ec09b72b7b995b1fcd598f02b46c1f78378815a")
-        (revision "30"))
+  (let ((commit "a237a0809dbcc4b63a367fb12bb5bbfd00db3153")
+        (revision "31"))
     (package
      (name "personal-website")
      (version (git-version "0.0.0" revision commit))
@@ -24,7 +24,7 @@
         (file-name (git-file-name name version))
         (sha256
          (base32
-          "0vh51w61hw9lh4h7xk1fx743n4szpxvax470wc2g2lb2m65gb8r4"))))
+          "1wwhnh04pbx77bxmhq9w623c7bs5dsidqjdy7nif9swqw11bkli3"))))
      (build-system gnu-build-system)
      (arguments
       (list
@@ -40,7 +40,11 @@
                (copy-recursively "site" #$output)
                (mkdir-p (string-append #$output "/assets/pdf/resume"))
                (symlink #$resume (string-append #$output "/assets/pdf/resume/Hallsby_Karl.pdf"))
-               (symlink #$latte26 (string-append #$output "/assets/pdf/latte26.pdf")))))))
+               (symlink #$latte26 (string-append #$output "/assets/pdf/latte26.pdf"))
+               (symlink #$(file-append hpdc26 "/hpdc26-summary.pdf")
+                        (string-append #$output "/assets/pdf/hpdc26-summary.pdf"))
+               (symlink #$(file-append hpdc26 "/hpdc26-poster.pdf")
+                        (string-append #$output "/assets/pdf/hpdc26-poster.pdf")))))))
      (native-inputs
       `(("guile" ,guile-3.0)
         ("guile-reader" ,guile-reader)
