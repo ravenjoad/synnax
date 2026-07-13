@@ -1,8 +1,10 @@
 (define-module (synnax packages papers)
   #:use-module (guix git-download)
   #:use-module (guix gexp)
+  #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
   #:use-module (guix build-system gnu)
+  #:use-module (gnu packages aidc)
   #:use-module (gnu packages perl)
   #:use-module (gnu packages tex))
 
@@ -80,3 +82,74 @@
       (description
        "")
       (license #f))))
+
+(define-public hpdc26
+  (let ((commit "5d1a738577b5ec4e592d3e021839b3d640a2cb76")
+        (revision "0"))
+    (package
+      (name "hpdc26")
+      (version (git-version "0.0.0" revision commit))
+      (source
+       (origin
+         (method git-fetch)
+         (uri (git-reference
+                (url "git://raven.hallsby.com/papers/fparch-paper.git")
+                (commit commit)))
+         (file-name (git-file-name name version))
+         (sha256
+          (base32
+           "0025fzf1bva53vn440cirzj5bgqa0krwhryq2flxp35dvvzs7h3r"))))
+      (build-system gnu-build-system)
+      (arguments
+       (list
+        #:phases
+        #~(modify-phases %standard-phases
+            (add-after 'unpack 'set-paper-root
+              (lambda _ (chdir "hpdc26")))
+            (delete 'configure)
+            (delete 'check)
+            (add-before 'build 'set-HOME
+              (lambda _
+                (setenv "HOME" (getcwd))))
+            (add-before 'build 'generate-qr-codes
+              (lambda _
+                (with-directory-excursion "../imgs"
+                  (invoke "make" "qr"))))
+            (replace 'install
+              (lambda _
+                (mkdir-p #$output)
+                (copy-file "summary.pdf" (string-append #$output "/hpdc26-summary.pdf"))
+                (copy-file "poster.pdf" (string-append #$output "/hpdc26-poster.pdf")))))))
+      (native-inputs
+       (list perl
+             qrencode
+             texlive-scheme-medium
+             (texlive-local-tree
+              (append
+               (list
+                texlive-beamer
+                texlive-beamerposter
+                texlive-biber
+                texlive-biblatex
+                texlive-changepage
+                texlive-cleveref
+                texlive-csquotes
+                texlive-enumitem
+                texlive-extsizes
+                texlive-lineno
+                texlive-listings
+                texlive-minted
+                texlive-multirow
+                texlive-pgf ; tikz.sty
+                texlive-pgfplots
+                texlive-ragged2e
+                texlive-tcolorbox
+                texlive-tikzfill
+                texlive-type1cm
+                texlive-siunitx)
+               acm-latex-packages))))
+      (home-page "https://raven.hallsby.com")
+      (synopsis "HPDC '26 paper \"Hardware-based Kernel-Bypass Exceptions\"")
+      (description
+       "")
+      (license license:cc-by4.0))))
