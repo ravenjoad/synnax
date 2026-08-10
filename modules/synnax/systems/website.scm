@@ -164,7 +164,8 @@ By default, age defaults to 1 year."
    "CyberSpyder" "EmailCollector" "Foobot" "GetURL" "httplib" "HTTrack"
    "LinkScan" "Openbot" "Snooper" "SuperBot" "URLSpiderPro" "MAZBot"
    "EchoboxBot" "SerendeputyBot" "LivelapBot" "linkfluence.com"
-   "TweetmemeBot" "LinkisBot" "CrowdTanglebot"))
+   "TweetmemeBot" "LinkisBot" "CrowdTanglebot"
+   "meta-externalagent"))
 
 (define nginx-block-bad-bots
   (string-append
