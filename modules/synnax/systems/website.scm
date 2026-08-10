@@ -250,7 +250,10 @@ By default, age defaults to 1 year."
                           (public-key "IeIt1/VHdoq7sbJlpaRnGM4bSOxyJkDUZ9su+wti1Ho=")
                           (preshared-key "/etc/wireguard/lilcato-website.psk")
                           (allowed-ips '("10.0.0.4/32")))))))
-           (service git-daemon-service-type) ;; Allow cloning repos with git://
+           (service git-daemon-service-type ;; Allow cloning repos with git://
+                    (git-daemon-configuration
+                      (export-all? #f)
+                      (base-path "/srv/git")))
            (service website-deploy-service-type
                     (website-deploy-configuration
                      (sites (list
