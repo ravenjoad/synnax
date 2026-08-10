@@ -321,12 +321,18 @@ By default, age defaults to 1 year."
                           (nginx-location-configuration
                            (uri "~ /cgit(/[^/\\s]+)(/[^\\s]+)?")
                            (body '("return 308 $scheme://cgit.raven.hallsby.com$1$2$is_args$query_string ;")))
-                          ;; NOTE: git-http is for cloning using HTTP, not browsing!
-                          ;; If you browse, you will always get a black webpage
-                          ;; or a 403.
+                          ;; NOTE: git-http is for cloning using HTTP, not
+                          ;; browsing! If you browse uri-path with your browser,
+                          ;; a 404 will always be returned.
                           (git-http-nginx-location-configuration
                            (git-http-configuration
-                            (uri-path "/")))))
+                             (git-root "/srv/git")
+                             ;; git-daemon will match against uri-path to
+                             ;; redirect the git clone to Git's HTTP cgi script.
+                             ;; NOTE: If you set this to "/", then every URL in
+                             ;; "raven.hallsby.com" will be redirected to the
+                             ;; script and a 404 will be returned.
+                             (uri-path "/git/")))))
                         (raw-content
                          (list (nginx-hsts-header)
                                nginx-x-content-type-options-header
@@ -385,8 +391,10 @@ By default, age defaults to 1 year."
                      (favicon "/share/cgit/favicon.ico")
                      (clone-url
                       '("git://raven.hallsby.com/$CGIT_REPO_URL"
+                        "https://raven.hallsby.com/git/$CGIT_REPO_URL"
                         "https://raven.hallsby.com/cgit/$CGIT_REPO_URL"
                         "git://cgit.raven.hallsby.com/$CGIT_REPO_URL"
+                        "https://cgit.raven.hallsby.com/git/$CGIT_REPO_URL"
                         "https://cgit.raven.hallsby.com/$CGIT_REPO_URL"))
                      (enable-commit-graph? #t)
                      (enable-follow-links? #t)
