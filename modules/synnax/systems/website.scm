@@ -323,6 +323,7 @@ By default, age defaults to 1 year."
                            (body '("return 308 $scheme://cgit.raven.hallsby.com$1$2$is_args$query_string ;")))
                           ;; NOTE: git-http is for cloning using HTTP, not browsing!
                           ;; If you browse, you will always get a black webpage
+                          ;; or a 403.
                           (git-http-nginx-location-configuration
                            (git-http-configuration
                             (uri-path "/")))))
