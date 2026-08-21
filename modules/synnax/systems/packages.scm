@@ -363,6 +363,7 @@
         aspell
         aspell-dict-en
         dico
+        diction ; diction and style programs
         libreoffice))
 
 (define %development-packages
