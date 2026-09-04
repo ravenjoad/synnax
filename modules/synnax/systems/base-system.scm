@@ -184,6 +184,7 @@
                                           (substitute-urls
                                            (cons* "https://substitutes.nonguix.org"
                                                   "https://nonguix-proxy.ditigal.xyz"
+                                                  "https://bordeaux-us-east-mirror.cbaines.net"
                                                   (guix-configuration-substitute-urls config)))
                                           (authorized-keys
                                            (cons* keys/%nonguix
