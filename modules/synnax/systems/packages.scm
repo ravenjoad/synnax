@@ -2,6 +2,7 @@
   #:use-module (gnu)
   #:use-module (guix)
   #:use-module (gnu packages dictionaries)
+  #:use-module (gnu packages linux)
   #:use-module (gnu packages vpn)
   #:use-module (nongnu packages mozilla)
   #:use-module (nongnu packages messaging) ;; zoom, element-desktop
@@ -55,7 +56,7 @@
  disk             ; dosfstools (mkfs.fat)
  cryptsetup samba
  freedesktop      ; XDG stuff, xdg-desktop-portal
- linux pulseaudio ; ALSA/PulseAudio
+ pulseaudio ; ALSA/PulseAudio
  compression
  terminals      ; alacritty, urxvt
  virtualization ; virt-manager
@@ -399,6 +400,7 @@
 (define %documentation-packages
   (list clhs ;; Common Lisp HyperSpec, with Emacs mode
         gnu-c-manual ;; The GNU manual for their C implementation
+        linux-libre-documentation ;; Read with `info linux'
         (list cmake "doc")))
 
 (define %font-packages
