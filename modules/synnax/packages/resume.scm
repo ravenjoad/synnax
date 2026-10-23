@@ -7,8 +7,8 @@
   #:use-module (gnu packages tex))
 
 (define-public resume
-  (let ((commit "cdd4f2caf4d5be4ac4f438fda578def137b70712")
-        (revision "11"))
+  (let ((commit "49f542404fe264e1fa1b4a78e01741bf0feab820")
+        (revision "12"))
     (package
      (name "raven-resume")
      (version (git-version "0.0.0" revision commit))
@@ -21,7 +21,7 @@
         (file-name (git-file-name name version))
         (sha256
          (base32
-          "1bk4pqsshmx76smc8gzvi3zdw84z8wy3l9al136pvl308ccfhizz"))))
+          "0hy0gv21r9krr68lkr4yhx75j3zf20364q9wgjbkzs8w7l1qcwkw"))))
      (build-system gnu-build-system)
      (native-inputs
       (list perl
@@ -60,7 +60,7 @@
              (lambda _
                (setenv "HOME" (getcwd))))
            (replace 'install
-             (lambda _ (copy-file "Hallsby_Karl.pdf" #$output))))))
+             (lambda _ (copy-file "cv.pdf" #$output))))))
      (home-page "https://raven.hallsby.com")
      (synopsis "Personal Resume/CV built using LaTeX")
      (description "Karl Hallsby's personal resume/curriculum vitae built using LaTeX.")
