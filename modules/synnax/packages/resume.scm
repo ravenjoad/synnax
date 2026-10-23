@@ -7,8 +7,8 @@
   #:use-module (gnu packages tex))
 
 (define-public resume
-  (let ((commit "49f542404fe264e1fa1b4a78e01741bf0feab820")
-        (revision "12"))
+  (let ((commit "e7690afee68b1f73c58c6094d1460e32e1d33050")
+        (revision "13"))
     (package
      (name "raven-resume")
      (version (git-version "0.0.0" revision commit))
@@ -21,7 +21,7 @@
         (file-name (git-file-name name version))
         (sha256
          (base32
-          "0hy0gv21r9krr68lkr4yhx75j3zf20364q9wgjbkzs8w7l1qcwkw"))))
+          "1lw65asxd631hlx63zx0g730821fwv1ppv8lx68qyxxmakpk6a8g"))))
      (build-system gnu-build-system)
      (native-inputs
       (list perl
@@ -44,6 +44,7 @@
               texlive-ctable
               texlive-datetime2 texlive-datetime2-english
               texlive-enumitem
+              texlive-siunitx
               texlive-titlesec
               texlive-titling
               texlive-tocbibind
