@@ -32,24 +32,20 @@
               texlive-collection-fontsrecommended
               texlive-collection-fontsextra
               texlive-latex-fonts
-              texlive-ec
               texlive-amsfonts
               ;; Actual packages
               texlive-biber
               texlive-biblatex
               texlive-booktabs
-              texlive-cm
-              texlive-cm-super
               texlive-csquotes
               texlive-ctable
               texlive-datetime2 texlive-datetime2-english
               texlive-enumitem
               texlive-siunitx
               texlive-titlesec
-              texlive-titling
               texlive-tocbibind
-              texlive-transparent
               texlive-tools
+              texlive-transparent
               texlive-xcolor))))
      (arguments
       (list
@@ -57,9 +53,6 @@
        #~(modify-phases %standard-phases
            (delete 'configure)
            (delete 'check)
-           (add-before 'build 'set-HOME
-             (lambda _
-               (setenv "HOME" (getcwd))))
            (replace 'install
              (lambda _ (copy-file "cv.pdf" #$output))))))
      (home-page "https://raven.hallsby.com")
