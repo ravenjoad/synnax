@@ -388,7 +388,8 @@
   (list l2md))
 
 (define %messaging-packages
-  (list telegram-desktop
+  (list signal-desktop
+        telegram-desktop
         zulip-desktop))
 
 (define avr-toolchain
