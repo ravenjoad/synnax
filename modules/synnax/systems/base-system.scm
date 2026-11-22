@@ -11,6 +11,7 @@
   #:use-module (gnu services docker)
   #:use-module (gnu services networking)
   #:use-module (gnu services nix)
+  #:use-module (gnu services sddm)
   #:use-module (gnu services ssh)
   #:use-module (gnu services virtualization)
   #:use-module (gnu services xorg)
@@ -55,7 +56,8 @@
      %base-packages))
    (services
     (append
-     (list (service plasma-desktop-service-type)
+     (list (service sddm-service-type)
+           (service plasma-desktop-service-type)
            (service openssh-service-type)
            (service cups-service-type
                     (cups-configuration
@@ -63,7 +65,8 @@
            (service fstrim-service-type)
            (set-xorg-configuration
             (xorg-configuration
-             (keyboard-layout keyboard-layout)))
+             (keyboard-layout keyboard-layout))
+            sddm-service-type)
            ;; Provide a dictionary globally on my systems that I can look up
            ;; from the command-line or from within Emacs.
            ;; By default, this includes a major set of FreeDict dictionaries
@@ -174,10 +177,7 @@
            ;; (name-service-switch %mdns-host-lookup-nss) ;; Resolve .local with mDNS
            )
      (modify-services %desktop-services
-                      (gdm-service-type config =>
-                                        (gdm-configuration
-                                         (inherit config)
-                                         (wayland? #t)))
+                      (delete gdm-service-type)
                       (guix-service-type config =>
                                          (guix-configuration
                                           (inherit config)
