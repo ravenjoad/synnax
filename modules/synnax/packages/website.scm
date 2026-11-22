@@ -29,7 +29,7 @@
      (arguments
       (list
        ;; #:install-plan
-       ;; #~'((#$resume (string-append #$output "/assets/pdf/resume/Hallsby_Karl.pdf")))
+       ;; #~'((#$resume (string-append #$output "/assets/pdf/cv.pdf")))
        #:phases
        #~(modify-phases %standard-phases
            (delete 'configure)
@@ -56,6 +56,6 @@
       `(("haunt" ,haunt)))
      (home-page "https://raven.hallsby.com")
      (synopsis "Personal website built using Haunt static site generator")
-     (description "Karl Hallsby's personal website built using the Haunt static site
-generator.")
+     (description "Raven Hallsby's personal website built using the Haunt
+static site generator.")
      (license #f))))

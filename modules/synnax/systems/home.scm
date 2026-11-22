@@ -262,8 +262,8 @@ export PATH=/run/setuid-programs:$PATH")))))
 \teditor = vim
 
 [user]
-\tname = Karl Hallsby
-\temail = karl@hallsby.com
+\tname = Raven Hallsby
+\temail = raven@hallsby.com
 
 [transfer]
 \tfsckobjects = true

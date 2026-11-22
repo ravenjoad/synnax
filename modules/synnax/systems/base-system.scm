@@ -38,8 +38,9 @@
     (keyboard-layout "us" #:options '("ctrl:nocaps")))
    (host-name "synnax-base-system")
    (users (cons* (user-account
+                  (uid 1000) ; What was originally assigned to me
                   (name "karljoad")
-                  (comment "Karl Hallsby")
+                  (comment "Raven Hallsby")
                   (group "users")
                   (home-directory "/home/karljoad")
                   (supplementary-groups

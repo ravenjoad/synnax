@@ -55,5 +55,5 @@
              (lambda _ (copy-file "cv.pdf" #$output))))))
      (home-page "https://raven.hallsby.com")
      (synopsis "Personal Resume/CV built using LaTeX")
-     (description "Karl Hallsby's personal resume/curriculum vitae built using LaTeX.")
+     (description "Raven Hallsby's personal resume/curriculum vitae built using LaTeX.")
      (license #f))))

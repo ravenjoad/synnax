@@ -73,7 +73,7 @@ is turned into
   (operating-system
     (inherit %base-system)
     (kernel linux-corrupted/desktop)
-    (host-name "Karl-Desktop")
+    (host-name "desktop")
     (packages
      (append
       (list freeipmi
