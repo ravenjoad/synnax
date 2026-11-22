@@ -4,6 +4,7 @@
   #:use-module (gnu packages dictionaries)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages vpn)
+  #:use-module (gnu packages window-management)
   #:use-module (nongnu packages mozilla)
   #:use-module (nongnu packages messaging) ;; zoom, element-desktop
   #:use-module (nongnu packages emacs) ;; clhs
@@ -48,7 +49,6 @@
  xdisorg          ; X11 helper programs
  wget curl
  version-control
- wm ; Stumpwm, dunst
  certs
  moreutils pciutils lsof
  dns            ; isc-bind (host, dig, etc.)
