@@ -10,8 +10,8 @@
   #:use-module (synnax packages resume))
 
 (define-public personal-website
-  (let ((commit "3d65153688f4e4f3e2b875a46d17daceaa7678e3")
-        (revision "34"))
+  (let ((commit "13b611e69ddc42dbdc6228a1522cbb50792f2581")
+        (revision "35"))
     (package
      (name "personal-website")
      (version (git-version "0.0.0" revision commit))
@@ -24,7 +24,7 @@
         (file-name (git-file-name name version))
         (sha256
          (base32
-          "1qfqgzppbdazrhkyaxmfsrcwcvflmabq1mj5jr32kgphy47nxfdh"))))
+          "0kq2b3rpkpkplpnlvr2ikzj6jqyd178c6hjzghvwb848rdx01nin"))))
      (build-system gnu-build-system)
      (arguments
       (list
@@ -39,7 +39,7 @@
              (lambda _
                (copy-recursively "site" #$output)
                (mkdir-p (string-append #$output "/assets/pdf/resume"))
-               (symlink #$resume (string-append #$output "/assets/pdf/resume/Hallsby_Karl.pdf"))
+               (symlink #$resume (string-append #$output "/assets/pdf/cv.pdf"))
                (symlink #$latte26 (string-append #$output "/assets/pdf/latte26.pdf"))
                (symlink #$(file-append hpdc26 "/hpdc26-summary.pdf")
                         (string-append #$output "/assets/pdf/hpdc26-summary.pdf"))
