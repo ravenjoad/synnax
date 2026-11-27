@@ -412,7 +412,9 @@
         ;; CJK Support
         font-google-noto-serif-cjk-static
         font-google-noto-serif-cjk
-        font-google-noto-sans-cjk))
+        font-google-noto-sans-cjk
+        ;; Another nice monospace font
+        font-intel-one-mono))
 
 (define %scientific-packages
   (list octave
